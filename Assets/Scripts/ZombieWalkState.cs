@@ -17,6 +17,18 @@ public class ZombieWalkState : IZombieState
     }
     public void UpdateState()
     {
+        if (zombieBase.zombieData.sightRange > 0)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(controller.transform.position, zombieBase.zombieData.sightRange);
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag("Player"))
+                {
+                    controller.ChangeState(new ZombieAttackState(controller));
+                    return;
+                }
+            }
+        }
         controller.transform.Translate(Vector3.forward * zombieBase.zombieData.moveSpeed * Time.deltaTime);
     }
     public void ExitState() { }
