@@ -15,18 +15,16 @@ public class ZombieIdleState : IZombieState
     }
     public void UpdateState()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(controller.transform.position, controller.zombieData.sightRange);
+        bool playerInRange = Physics.CheckSphere(
+         controller.transform.position,
+         controller.zombieData.sightRange,
+         controller.playerLayerMask
+     );
 
-        foreach (var hitCollider in hitColliders)
+        if (playerInRange)
         {
-            if (hitCollider.CompareTag("Player"))
-            {
-                controller.ChangeState(new ZombieWalkState(controller));
-            }
+            controller.ChangeState(new ZombieWalkState(controller));
         }
-
-        // If no player is detected, stay idle
-        controller.zombieVisualizer.PlayAnim(ZombieState);
     }
 
     public void ExitState() { }

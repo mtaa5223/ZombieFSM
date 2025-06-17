@@ -17,16 +17,16 @@ public class ZombieAttackState : IZombieState
     }
     public void UpdateState()
     {
-        Collider[] hits = Physics.OverlapSphere(controller.transform.position, controller.zombieData.attackRange);
+        bool playerInRange = Physics.CheckSphere(
+        controller.transform.position,
+        controller.zombieData.attackRange,
+        controller.playerLayerMask
+    );
 
-        foreach (var col in hits)
+        if (!playerInRange)
         {
-            if (col.CompareTag("Player"))
-            {
-                controller.zombieVisualizer.PlayAnim(ZombieState);
-            }
+            controller.ChangeState(new ZombieWalkState(controller));
         }
     }
-
     public void ExitState() { }
 }

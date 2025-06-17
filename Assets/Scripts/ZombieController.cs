@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
+    public LayerMask playerLayerMask;
     public ZombieState zombieState = ZombieState.Idle;
     public ZombieScriptableObject zombieData;
     public ZombieVisualizer zombieVisualizer;

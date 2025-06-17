@@ -15,15 +15,26 @@ public class ZombieWalkState : IZombieState
     }
     public void UpdateState()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(controller.transform.position, controller.zombieData.attackRange);
+        bool playerInRange = Physics.CheckSphere(
+          controller.transform.position,
+          controller.zombieData.attackRange,
+          controller.playerLayerMask
+      );
 
-        foreach (var hitCollider in hitColliders)
+        bool playerInSight = Physics.CheckSphere(
+      controller.transform.position,
+      controller.zombieData.sightRange,
+      controller.playerLayerMask
+  );
+        if (playerInRange)
         {
-            if (hitCollider.CompareTag("Player"))
-            {
-                controller.ChangeState(new ZombieAttackState(controller));
-            }
+            controller.ChangeState(new ZombieAttackState(controller));
         }
+        if (!playerInSight)
+        {
+            controller.ChangeState(new ZombieIdleState(controller));
+        }
+
         controller.transform.Translate(Vector3.forward * controller.zombieData.moveSpeed * Time.deltaTime);
     }
     public void ExitState() { }
