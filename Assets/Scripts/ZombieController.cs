@@ -3,10 +3,11 @@ using UnityEngine;
 public class ZombieController : MonoBehaviour
 {
     public ZombieState zombieState = ZombieState.Idle;
-
+    public ZombieScriptableObject zombieData;
     public ZombieVisualizer zombieVisualizer;
     public ZombieWalkState zombieWalkState;
     public ZombieIdleState zombieIdleState;
+
 
     public IZombieState currentState;
 

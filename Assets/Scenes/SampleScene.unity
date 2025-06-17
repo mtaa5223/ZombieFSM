@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieState: 0
+  zombieData: {fileID: 11400000, guid: 71be2c748d7c42b4d9e4e32c2bdd0941, type: 2}
   zombieVisualizer: {fileID: 245415301}
 --- !u!95 &245415300
 Animator:
@@ -225,21 +226,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &245415304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245415297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef83409b5b0aaa42a148c24e9906e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieData: {fileID: 11400000, guid: 71be2c748d7c42b4d9e4e32c2bdd0941, type: 2}
-  zombieVisualizer: {fileID: 245415301}
-  zombieController: {fileID: 245415299}
 --- !u!1001 &924648227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,9 +297,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 245415302}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 245415304}
   m_SourcePrefab: {fileID: 100100000, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
 --- !u!1001 &1365329904
 PrefabInstance:
@@ -380,12 +363,6 @@ PrefabInstance:
       addedObject: {fileID: 1365329911}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1365329910}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1365329909}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1365329908}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9cbb5288e4787a44a27e9246b51540a, type: 3}
       insertIndex: -1
@@ -411,9 +388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef83409b5b0aaa42a148c24e9906e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieData: {fileID: 11400000, guid: 71be2c748d7c42b4d9e4e32c2bdd0941, type: 2}
-  zombieVisualizer: {fileID: 1365329909}
-  zombieController: {fileID: 1365329910}
+  <ZombieState>k__BackingField: 1
+  zombieVisualizer: {fileID: 0}
+  zombieController: {fileID: 0}
 --- !u!136 &1365329907
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -464,33 +441,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1365329909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365329905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443386d870827f8428d1b2b154ffb247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1365329911}
---- !u!114 &1365329910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365329905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fd8daa640e3a9458df39ec5472828e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieState: 0
-  zombieVisualizer: {fileID: 1365329909}
 --- !u!95 &1365329911
 Animator:
   serializedVersion: 5

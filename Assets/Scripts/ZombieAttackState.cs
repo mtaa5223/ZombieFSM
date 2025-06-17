@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class ZombieAttackState : IZombieState
 {
     private ZombieController controller;
@@ -11,11 +13,19 @@ public class ZombieAttackState : IZombieState
     public void EnterState()
     {
         controller.zombieState = ZombieState;
-        controller.zombieVisualizer.PlayAnim(ZombieState);
+
     }
     public void UpdateState()
     {
-        // 공격 쿨타임, 타겟 검사 등을 여기에
+        Collider[] hits = Physics.OverlapSphere(controller.transform.position, controller.zombieData.attackRange);
+
+        foreach (var col in hits)
+        {
+            if (col.CompareTag("Player"))
+            {
+                controller.zombieVisualizer.PlayAnim(ZombieState);
+            }
+        }
     }
 
     public void ExitState() { }
